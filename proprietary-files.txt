@@ -5,7 +5,6 @@
 
 /bin/BCM4329B1_002.002.023.0746.0000_SS_S1-plus-38_4MHz-TEST-ONLY.hcd
 /bin/geomagneticd
-/bin/immvibed
 /bin/orientationd
 /bin/rmt_storage
 

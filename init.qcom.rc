@@ -262,12 +262,6 @@ service geomagneticd /system/bin/geomagneticd
     user compass
     group system input
 
-service immvibed /system/bin/immvibed
-    class main
-    user shell
-    group shell
-    oneshot
-
 service playlpm /system/bin/playlpm
     class charger
     user root
