@@ -21,6 +21,11 @@
 /etc/firmware/yamato_pfp.fw
 /etc/firmware/yamato_pm4.fw
 
+/firmware/CE147F00.bin
+/firmware/CE147F01.bin
+/firmware/CE147F02.bin
+/firmware/CE147F03.bin
+
 /lib/egl/libEGL_adreno200.so
 /lib/egl/libGLESv1_CM_adreno200.so
 /lib/egl/libGLESv2_adreno200.so
