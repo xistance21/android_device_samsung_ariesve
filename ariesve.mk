@@ -72,7 +72,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keyfiles/ariesve_handset.kl:system/usr/keylayout/ariesve_handset.kl \
     $(LOCAL_PATH)/keyfiles/ariesve_keypad.kl:system/usr/keylayout/ariesve_keypad.kl \
     $(LOCAL_PATH)/keyfiles/sec_jack.kl:system/usr/keylayout/sec_jack.kl \
-    $(LOCAL_PATH)/keyfiles/quantom-touchscreen.kl:system/usr/keylayout/quantom-touchscreen.kl
+    $(LOCAL_PATH)/keyfiles/melfas_touchkey.kl:system/usr/keylayout/melfas_touchkey.kl
 
 # Modules
 PRODUCT_COPY_FILES += \
