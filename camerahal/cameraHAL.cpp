@@ -399,7 +399,6 @@ void CameraHAL_FixupParams(android::CameraParameters &camParams, priv_camera_dev
         if (!camParams.get(android::CameraParameters::KEY_MAX_NUM_FOCUS_AREAS)) {
             camParams.set(CameraParameters::KEY_MAX_NUM_FOCUS_AREAS, 1);
         }
-
         // zoom
         camParams.set(CameraParameters::KEY_MAX_ZOOM, "12");
         camParams.set(CameraParameters::KEY_ZOOM_RATIOS, "100,125,150,175,200,225,250,275,300,325,350,375,400");
