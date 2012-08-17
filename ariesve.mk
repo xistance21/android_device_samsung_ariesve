@@ -118,6 +118,7 @@ PRODUCT_PACKAGES += \
     audio.primary.msm7x30 \
     audio_policy.msm7x30 \
     audio.a2dp.default \
+    lights.ariesve \
     gps.ariesve
 
 PRODUCT_PACKAGES += \
@@ -141,7 +142,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     hciconfig \
     hcitool \
-    libaudioutils
+    libaudioutils \
+    AriesParts
 
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
