@@ -31,7 +31,7 @@ public class DeviceSettings extends PreferenceActivity  {
     private CheckBoxPreference mTvOutEnable;
     private ListPreference mTvOutSystem;
     private TvOut mTvOut;
-    private VolumeBoostPreference mVolumeBoost;*/
+    private VolumeBoostPreference mVolumeBoost;
 
     private BroadcastReceiver mHeadsetReceiver = new BroadcastReceiver() {
 
@@ -41,7 +41,7 @@ public class DeviceSettings extends PreferenceActivity  {
             updateTvOutEnable(state != 0);
         }
 
-    };
+    };*/
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
