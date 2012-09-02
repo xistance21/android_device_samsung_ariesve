@@ -36,4 +36,12 @@
   <string name="mic_spk_title">Microfon Difuzor</string>
   <string name="mic_hp_title">Set cu cască Microfon</string>
   <string name="mic_hp_no_mic_title">Set cu cască (fără microfon) Microfon</string>
+	<string name="g_sensor_title">Calibrare orizontală</string>
+	<string name="g_sensor_summary">Calibrare orizontală utilizând accelerometrul</string>
+	<string name="gsensor_ready">Poziţionaţi dispozitivul pe o suprafaţă netedă şi atingeţi Calibrare</string>
+	<string name="gsensor_calibrating">Se calibrează. Nu mişcaţi dispozitivul. Aşteptaţi...</string>
+	<string name="gsensor_nofile">Imposibil de găsit fişierul offset de calibrare. Încercaţi din nou</string>
+	<string name="gsensor_end">Calibrat</string>
+	<string name="gsensor_button1">terminat</string>
+	<string name="gsensor_button2">Calibrare</string>
 </resources>

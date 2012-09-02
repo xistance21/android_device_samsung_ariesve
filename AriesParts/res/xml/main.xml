@@ -27,6 +27,18 @@
   			android:entryValues="@array/backlight_timeout_entries_values"
   			android:defaultValue="1600" />
 	</PreferenceCategory>
+	<PreferenceCategory
+    	android:title="@string/category_screen_title">
+	    <!-- GSensor calibration -->
+	    <Preference 
+		android:key="gsensor"
+	        android:title="@string/g_sensor_title"
+	        android:summary="@string/g_sensor_summary"
+		>
+		  <intent android:action="com.cyanogenmod.settings.device.GSensor"/>
+	    </Preference>
+	</PreferenceCategory>
+
 <!--
 	<PreferenceCategory
         android:title="@string/category_radio_title"

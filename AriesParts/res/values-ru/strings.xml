@@ -25,4 +25,12 @@
     <string name="tvout_enable_summary_on">ТВ выход включен</string>
     <string name="tvout_system_head">Система ТВ</string>
     <string name="tvout_system_summary">Установите систему вещания</string>
+    <string name="g_sensor_title">Горизонтальная калибровка</string>
+    <string name="g_sensor_summary">Калибровать по горизонтали с помощью акселерометра</string>
+    <string name="gsensor_ready">Положите устройство на ровную поверхность и нажмите \"Калибровка\"</string>
+    <string name="gsensor_calibrating">Выполняется калибровка. Не перемещайте устройство. Подождите...</string>
+    <string name="gsensor_nofile">Не удается найти файл погрешностей. Повторите попытку</string>
+    <string name="gsensor_end">Откалибровано</string>
+    <string name="gsensor_button1">Завершено</string>
+    <string name="gsensor_button2">Калибровка</string>
 </resources>

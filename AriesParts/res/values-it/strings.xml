@@ -36,4 +36,12 @@
     <string name="mic_spk_title">Microfono vivavoce</string>
     <string name="mic_hp_title">Microfono cuffie</string>
     <string name="mic_hp_no_mic_title">Microfono cuffie (senza mic.)</string>
+    <string name="g_sensor_title">Calibrazione orizzontale</string>
+    <string name="g_sensor_summary">Calibra il dispositivo con l’accelerometro</string>
+    <string name="gsensor_ready">Posizionate il dispositivo su una superficie piana e toccate Calibra</string>
+    <string name="gsensor_calibrating">Calibrazione in corso. Non muovere il dispositivo. Attendere...</string>
+    <string name="gsensor_nofile">Impossibile trovare il file offset. Riprovare</string>
+    <string name="gsensor_end">Calibrazione avvenuta</string>
+    <string name="gsensor_button1">Completo</string>
+    <string name="gsensor_button2">Calibra</string>
 </resources>

@@ -40,4 +40,12 @@
     <string name="mic_spk_title">Microfone do Viva Voz</string>
     <string name="mic_hp_title">Microfone do Fone de Ouvido</string>
     <string name="mic_hp_no_mic_title">Microfone do Fone de Ouvido (que não tem microfone)</string>
+    <string name="g_sensor_title">Calibração horizontal</string>
+    <string name="g_sensor_summary">Calibrar horizontalmente utilizando o acelerómetro</string>
+    <string name="gsensor_ready">Coloque o dispositivo numa superfície de nível e toque em Calibrar</string>
+    <string name="gsensor_calibrating">A calibrar. Não desloque o dispositivo. Aguarde...</string>
+    <string name="gsensor_nofile">Impossível encontrar ficheiro de deslocamento. Tente novamente</string>
+    <string name="gsensor_end">Calibrada</string>
+    <string name="gsensor_button1">Concluída</string>
+    <string name="gsensor_button2">Calibrar</string>
 </resources>
