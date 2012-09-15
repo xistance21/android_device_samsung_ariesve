@@ -1117,9 +1117,9 @@ int camera_get_camera_info(int camera_id, struct camera_info *info)
 
     info->facing = cameraInfo.facing;
     if (info->facing == 1) // Correct orientation simulating mirror
-	    info->orientation = -cameraInfo.orientation % 360;
+	    info->orientation = 270;
     else
-	    info->orientation = cameraInfo.orientation;
+	    info->orientation = 90;
 
     LOGI("%s: id:%i faceing:%i orientation: %i", __FUNCTION__,camera_id, info->facing, info->orientation);
 
