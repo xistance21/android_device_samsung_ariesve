@@ -87,7 +87,7 @@ on boot
     chown system input /sys/class/input/input9/status
     chown system input /sys/class/input/input9/testmode
 
-    write /sys/devices	/platform/i2c-gpio.12/i2c-12/12-002e/input/input5/threshold 1
+    write /sys/class/input/input5/threshold 1
     write /sys/class/input/input5/distortion " 15 15 15"
 
     chown system system /sys/devices/platform/msm_sdcc.1/polling
