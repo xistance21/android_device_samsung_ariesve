@@ -29,6 +29,9 @@
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 
+#define BACKLIGHT_ON		0x1
+#define BACKLIGHT_OFF		0x2
+
 char const *const LCD_FILE = "/sys/class/leds/lcd-backlight/brightness";
 char const *const LED_FILE = "/sys/class/misc/notification/led";
 char const *const BUTTON_FILE = "/sys/devices/virtual/misc/melfas_touchkey/brightness";
@@ -113,9 +116,9 @@ static int set_light_buttons (struct light_device_t* dev,
 	LOGV("%s state->color = %d is_lit = %d", __func__,state->color , on);
 	pthread_mutex_lock (&g_lock);
 	if(on)
-		write_int(BUTTON_FILE, 1);
+		write_int(BUTTON_FILE, BACKLIGHT_ON);
 	else
-		write_int(BUTTON_FILE, 2);
+		write_int(BUTTON_FILE, BACKLIGHT_OFF);
 
 	pthread_mutex_unlock (&g_lock);
 	return 0;
