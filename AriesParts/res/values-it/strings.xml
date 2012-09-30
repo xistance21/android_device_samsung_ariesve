@@ -15,6 +15,8 @@
     <string name="category_touchkey_title">Tasti a sfioramento</string>
     <string name="backlight_timeout_title_head">Timer retroilluminazione</string>
     <string name="backlight_timeout_summary_head">Imposta l\'intervallo dopo cui la retroilluminazione dei tasti si spegne</string>
+	<string name="backlight_wakelock_title_head">Attivazione retroilluminazione</string>
+    <string name="backlight_wakelock_summary_head">Attiva la retroilluminazione in Deep Sleep (ATTENZIONE se attivata consumerà più batteria)</string>
     <string name="category_radio_title">Gestione della rete</string>
     <string name="hspa_title_head">HSPA</string>
     <string name="hspa_summary_head">Abilita HSDPA/HSUPA</string>

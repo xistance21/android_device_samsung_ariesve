@@ -17,6 +17,7 @@ public class DeviceSettings extends PreferenceActivity  {
     public static final String KEY_COLOR_TUNING = "color_tuning";
     public static final String KEY_MDNIE = "mdnie";
     public static final String KEY_GSENSOR = "gsensor";
+    public static final String KEY_BACKLIGHT_WAKELOCK = "backlight_wakelock";
     public static final String KEY_BACKLIGHT_TIMEOUT = "backlight_timeout";
     public static final String KEY_HSPA = "hspa";
     public static final String KEY_HSPA_CATEGORY = "category_radio";
@@ -28,6 +29,7 @@ public class DeviceSettings extends PreferenceActivity  {
     /*private ColorTuningPreference mColorTuning;
     private ListPreference mMdnie;*/
     private ListPreference mBacklightTimeout;
+    private CheckBoxPreference mBacklightWakelock;
     private Preference mGSensor;
     /*private ListPreference mHspa;
     private CheckBoxPreference mTvOutEnable;
@@ -57,11 +59,15 @@ public class DeviceSettings extends PreferenceActivity  {
         mMdnie.setEnabled(Mdnie.isSupported());
         mMdnie.setOnPreferenceChangeListener(new Mdnie());*/
 
+        mBacklightWakelock = (CheckBoxPreference) findPreference(KEY_BACKLIGHT_WAKELOCK);
+        mBacklightWakelock.setEnabled(TouchKeyBacklightWakelock.isSupported());
+        mBacklightWakelock.setOnPreferenceChangeListener(new TouchKeyBacklightWakelock());
+
         mBacklightTimeout = (ListPreference) findPreference(KEY_BACKLIGHT_TIMEOUT);
         mBacklightTimeout.setEnabled(TouchKeyBacklightTimeout.isSupported());
         mBacklightTimeout.setOnPreferenceChangeListener(new TouchKeyBacklightTimeout());
 
-	mGSensor = (Preference) findPreference(KEY_GSENSOR);
+		mGSensor = (Preference) findPreference(KEY_GSENSOR);
         mGSensor.setEnabled(GSensor.isSupported());
 
         /*mHspa = (ListPreference) findPreference(KEY_HSPA);
