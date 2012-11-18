@@ -43,6 +43,7 @@ PRODUCT_COPY_FILES += \
 
 # Media configuration xml file
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/config/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/config/media_profiles.xml:system/etc/media_profiles.xml
 
 PRODUCT_COPY_FILES += \
@@ -50,6 +51,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/init.qcom.usb.rc:root/init.qcom.usb.rc \
     $(LOCAL_PATH)/config/ueventd.qcom.rc:root/ueventd.qcom.rc \
     $(LOCAL_PATH)/config/vold.fstab:system/etc/vold.fstab \
+    $(LOCAL_PATH)/config/fstab.qcom:root/fstab.qcom \
     $(LOCAL_PATH)/config/nvram_net.txt:system/vendor/firmware/nvram_net.txt \
     $(LOCAL_PATH)/recovery/fix_reboot.sh:recovery/root/sbin/fix_reboot.sh \
     $(LOCAL_PATH)/prebuilt/FileManager.apk:system/app/FileManager.apk \
@@ -113,6 +115,7 @@ PRODUCT_PACKAGES += \
     gps.msm7x30 \
     audio.primary.msm7x30 \
     audio_policy.msm7x30 \
+    audio_policy.conf \
     audio.a2dp.default \
     lights.msm7x30
 
@@ -121,7 +124,8 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxVenc \
     libOmxVdec \
-    libstagefrighthw
+    libstagefrighthw \
+    libI420colorconvert
 
 PRODUCT_PACKAGES += \
     badblocks \

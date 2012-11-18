@@ -87,6 +87,9 @@
     <!-- Integer indicating wpa_supplicant scan interval in milliseconds -->
     <integer translatable="false" name="config_wifi_supplicant_scan_interval">90000</integer>
 
+    <!-- If this is true, the screen will fade off. -->
+    <bool name="config_animateScreenLights">false</bool>
+
     <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">true</bool>
@@ -178,15 +181,12 @@
              1 - Home
              2 - Back
              4 - Menu
-             8 - Search
+             8 - Assistant (search)
             16 - App switch
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
     <integer name="config_deviceHardwareKeys">7</integer>
 
-    <!-- Timeout in MS for how long you have to long-press the back key to
-         kill the foreground app. -->
-    <integer name="config_backKillTimeout">1500</integer>
     <!-- Boolean to enable stk functionality on Samsung phones -->
     <bool name="config_samsung_stk">true</bool>
 
