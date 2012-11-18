@@ -9,7 +9,6 @@ $(call inherit-product, $(LOCAL_PATH)/full_ariesve.mk)
 
 PRODUCT_RELEASE_NAME := ariesve
 
-CM_EXPERIMENTAL := true
 CM_EXTRAVERSION := alpha2
 
 # Setup device configuration
