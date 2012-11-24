@@ -20,7 +20,7 @@ LOCAL_C_INCLUDES += frameworks/native/include
 
 LOCAL_SHARED_LIBRARIES := liblog libutils libcutils libbinder
 LOCAL_SHARED_LIBRARIES += libui libhardware libcamera_client
-LOCAL_SHARED_LIBRARIES += libcamera libseccameraadaptor
+LOCAL_SHARED_LIBRARIES += libseccameraadaptor
 LOCAL_PRELINK_MODULE := false
 
 
