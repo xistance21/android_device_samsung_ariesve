@@ -9,7 +9,10 @@ $(call inherit-product, $(LOCAL_PATH)/full_ariesve.mk)
 
 PRODUCT_RELEASE_NAME := ariesve
 
-CM_EXTRAVERSION := alpha2
+CM_BUILDTYPE := ivendor-alpha5
+CM_NUMERICAL_VERSION := 0.0.5
+
+$(call inherit-product, $(LOCAL_PATH)/ota-update-center.mk)
 
 # Setup device configuration
 PRODUCT_NAME := cm_ariesve
@@ -18,5 +21,5 @@ PRODUCT_BRAND := Samsung
 PRODUCT_MANUFACTURER := Samsung
 PRODUCT_MODEL := GT-I9001
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_FINGERPRINT=samsung/GT-I9001/GT-I9001:2.3.6/GINGERBREAD/XXKQB:user/release-keys PRIVATE_BUILD_DESC="GT-I9001-user 2.3.6 GINGERBREAD XXKQB release-keys"
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_FINGERPRINT=samsung/GT-I9001/GT-I9001:2.3.6/GINGERBREAD/XXKQI:user/release-keys PRIVATE_BUILD_DESC="GT-I9001-user 2.3.6 GINGERBREAD XXKQI release-keys"
 
