@@ -27,18 +27,16 @@ PRODUCT_COPY_FILES += \
 # Support files
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
+    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
-
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
 
 # Feature live wallpaper
 PRODUCT_COPY_FILES += \
@@ -46,9 +44,10 @@ PRODUCT_COPY_FILES += \
 
 # Media configuration xml file
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/config/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/config/media_profiles.xml:system/etc/media_profiles.xml
-
+    $(LOCAL_PATH)/config/media_profiles.xml:system/etc/media_profiles.xml \
+	$(LOCAL_PATH)/config/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf  
+	
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/init.qcom.rc:root/init.qcom.rc \
     $(LOCAL_PATH)/config/init.qcom.usb.rc:root/init.qcom.usb.rc \
@@ -56,13 +55,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/vold.fstab:system/etc/vold.fstab \
     $(LOCAL_PATH)/config/fstab.qcom:root/fstab.qcom \
     $(LOCAL_PATH)/config/nvram_net.txt:system/vendor/firmware/nvram_net.txt \
-    $(LOCAL_PATH)/prebuilt/FileManager.apk:system/app/FileManager.apk \
+    $(LOCAL_PATH)/recovery/fix_reboot.sh:recovery/root/sbin/fix_reboot.sh \
     $(LOCAL_PATH)/prebuilt/get_macaddrs:system/bin/get_macaddrs
-
-# Needed to reset bootmode when leaving recovery
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
-    $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/system/bin/postrecoveryboot.sh
 
 # Input device calibration files
 PRODUCT_COPY_FILES += \
@@ -78,10 +72,21 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keyfiles/sec_jack.kl:system/usr/keylayout/sec_jack.kl \
     $(LOCAL_PATH)/keyfiles/melfas_touchkey.kl:system/usr/keylayout/melfas_touchkey.kl
 
+# Copy bcm4329 firmware
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcm4329/firmware/device-bcm.mk)
+
 # Modules
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/bthid.ko:root/lib/modules/bthid.ko \
+    $(LOCAL_PATH)/prebuilt/dhd.ko:root/lib/modules/dhd.ko \
     $(LOCAL_PATH)/prebuilt/cifs.ko:root/lib/modules/cifs.ko \
-    $(LOCAL_PATH)/prebuilt/dhd.ko:root/lib/modules/dhd.ko
+    $(LOCAL_PATH)/prebuilt/bthid.ko:system/lib/modules/bthid.ko \
+    $(LOCAL_PATH)/prebuilt/dhd.ko:system/lib/modules/dhd.ko \
+    $(LOCAL_PATH)/prebuilt/cifs.ko:system/lib/modules/cifs.ko
+
+# BT main.conf
+PRODUCT_COPY_FILES += \
+        system/bluetooth/data/main.conf:system/etc/bluetooth/main.conf
 
 # LPM
 PRODUCT_COPY_FILES += \
@@ -119,19 +124,32 @@ PRODUCT_PACKAGES += \
     gralloc.msm7x30 \
     hwcomposer.msm7x30 \
     gps.msm7x30 \
+    lights.msm7x30 \
+    power.msm7x30 \
     audio.primary.msm7x30 \
-    audio_policy.msm7x30 \
     audio_policy.conf \
-    audio.a2dp.default \
-    lights.msm7x30
+    audio.a2dp.default
 
 PRODUCT_PACKAGES += \
+    libgenlock \
+    libmemalloc \
+    liboverlay \
+    libqdutils \
+    libtilerenderer \
+    libI420colorconvert
+
+PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
+    libdivxdrmdecrypt \
     libmm-omxcore \
     libOmxCore \
-    libOmxVenc \
-    libOmxVdec \
     libstagefrighthw \
-    libI420colorconvert
+    libOmxVdec \
+    libOmxVenc \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc
 
 PRODUCT_PACKAGES += \
     badblocks \
@@ -142,15 +160,12 @@ PRODUCT_PACKAGES += \
     resize2fs \
     tune2fs \
     make_ext4fs \
-    setup_fs \
-    rild
+    setup_fs
 
 PRODUCT_PACKAGES += \
-	com.android.future.usb.accessory \
     hciconfig \
     hcitool \
-    libaudioutils \
-    AriesParts
+    libaudioutils
 
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
@@ -169,6 +184,9 @@ PRODUCT_COPY_FILES += \
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
+
+# Set build date
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 $(call inherit-product-if-exists, vendor/samsung/ariesve/device-vendor.mk)

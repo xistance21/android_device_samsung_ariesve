@@ -33,16 +33,18 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/ariesve/include
 TARGET_BOARD_PLATFORM := msm7x30
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 
+
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 
+# Enable NEON feature
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
 
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_NO_SECURE_PLAYBACK
-COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT -DSAMSUNG_CAMERA_QCOM -DFFC_BROKEN_MIRROR
-COMMON_GLOBAL_CFLAGS += -DQCOM_FM_ENABLED
+COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT -DSAMSUNG_CAMERA_QCOM
+
 
 TARGET_BOOTLOADER_BOARD_NAME := ariesve
 TARGET_OTA_ASSERT_DEVICE := ariesve,GT-I9001
@@ -54,8 +56,6 @@ TARGET_NO_INITLOGO := true
 
 TARGET_SCREEN_HEIGHT := 800
 TARGET_SCREEN_WIDTH := 480
-
-
 
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER      := WEXT
@@ -75,39 +75,46 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 TARGET_NEEDS_BLUETOOTH_INIT_DELAY := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/ariesve/bluetooth
 
 BOARD_MOBILEDATA_INTERFACE_NAME = "pdp0"
 
+BOARD_USES_LEGACY_RIL := true
 BOARD_USES_LIBSECRIL_STUB := true
 
-
-BOARD_USES_QCOM_AUDIO_RESETALL := true
-BOARD_USES_LEGACY_RIL := true
 BOARD_HAVE_SAMSUNG_AUDIO := true
-#TARGET_USES_QCOM_LPA := true
+BOARD_USES_QCOM_AUDIO_RESETALL := true
 
-# FM Radio
-BOARD_HAVE_FM_RADIO := true
-BOARD_HAVE_QCOM_FM := true
-BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
-BOARD_FM_DEVICE := si4709
+## Uncomment these to use the code aurora forum thingys
+#TARGET_QCOM_AUDIO_VARIANT := caf
+#TARGET_QCOM_DISPLAY_VARIANT := caf
+
+#BOARD_USES_QCOM_AUDIO_LPA := true
+#BOARD_USES_QCOM_AUDIO_VOIPMUTE := true
 
 BOARD_EGL_CFG := device/samsung/ariesve/config/egl.cfg
+TARGET_USES_ION := true
 
 USE_OPENGL_RENDERER := true
+BOARD_USE_SKIA_LCDTEXT := true
 
-TARGET_NO_HW_VSYNC := true
-TARGET_USES_C2D_COMPOSITION := true
 
 # QCOM webkit
 TARGET_FORCE_CPU_UPLOAD := true
+ 
+#TARGET_NO_HW_VSYNC := true
+
+TARGET_USES_C2D_COMPOSITION := true
 
 BOARD_NEEDS_MEMORYHEAPPMEM := true
 
+# QCOM webkit
+ENABLE_WEBGL := true
+TARGET_FORCE_CPU_UPLOAD := true
+DYNAMIC_SHARED_LIBV8SO := true
+
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QCOM_GPS := true
-#BOARD_USES_QCOM_AUDIO_LPA := true
-
 
 BOARD_USE_LEGACY_TOUCHSCREEN := true
 
@@ -127,12 +134,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_MAX_PARTITIONS := 28
 
-BOARD_MTP_DEVICE := "/dev/usb_mtp_gadget"
-
-# Boot Animation
-TARGET_BOOTANIMATION_PRELOAD := true
-TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-TARGET_BOOTANIMATION_USE_RGB565 := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
 # Begin recovery stuff
 #
@@ -154,10 +156,10 @@ BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/ariesve/recovery/graphics.c
 TARGET_RECOVERY_INITRC := device/samsung/ariesve/config/init.recovery.rc
 TARGET_RECOVERY_FSTAB := device/samsung/ariesve/recovery.fstab
 # Enable below line if compiling for a recovery version before 6.0.1.2
-# BOARD_UMS_LUNFILE := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
+#BOARD_UMS_LUNFILE := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 # End recovery stuff
 
 TARGET_PREBUILT_KERNEL := device/samsung/ariesve/prebuilt/zImage
 
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
+BOARD_RIL_CLASS := ../../../device/samsung/ariesve/ril/
 

@@ -4,10 +4,24 @@
 rild.libpath=/system/lib/libsec-ril.so
 rild.libargs=-d /dev/smd0
 
+persist.sys.strictmode.visual=0
+ro.secure=0
+
+# Modify MMS APN retry timer from 5s to 2s.
+ro.gsm.2nd_data_retry_config=max_retries=3, 2000, 2000, 2000
+
 ro.ril.hsxpa=1
 ro.ril.gprsclass=10
 ro.telephony.ril_class=SamsungRIL
-ro.telephony.ril.v3=datacall,icccardstatus
+ro.telephony.ril.v3=signalstrength,datacall,icccardstatus
+
+ro.ril.enable.dtm=0
+ro.ril.gprsclass=10
+ro.ril.hsdpa.category=10
+ro.ril.hsupa.category=6
+ro.ril.hsxpa=1
+
+mobiledata.interfaces=gannet0,rmnet0,rmnet1,rmnet2
 
 # Wifi interface device
 wifi.interface=wlan0
@@ -31,9 +45,13 @@ ro.zram.default=0
 
 # QCOM
 com.qc.hardware=true
+com.qc.hdmi_out=false
 debug.sf.hw=1
+debug.sf.swaprect=1
 debug.egl.hw=1
 debug.enabletr=true
+ro.sf.compbypass.enable=1
+debug.hwui.render_dirty_regions=true
 
 # QCOM CpuGovernorService
 dev.pm.dyn_samplingrate=1
@@ -56,3 +74,10 @@ ro.vold.switchablepair=/storage/sdcard0,/storage/sdcard1
 
 # Enable repeatable keys in recovery
 ro.cwm.enable_key_repeat=true
+
+# I9001 Hardware Info
+ro.device.cpu=Qualcomm Snapdragon MSM8255T (1.400 MHz)
+ro.device.gpu=Qualcomm Adreno 205
+ro.device.rear_cam=5 Megapixel
+ro.device.front_cam=0.3 Megapixel
+ro.device.screen_res=480 x 800
