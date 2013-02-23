@@ -45,8 +45,7 @@ PRODUCT_COPY_FILES += \
 # Media configuration xml file
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/media_profiles.xml:system/etc/media_profiles.xml \
-	$(LOCAL_PATH)/config/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf  
+	$(LOCAL_PATH)/config/media_codecs.xml:system/etc/media_codecs.xml 
 	
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/init.qcom.rc:root/init.qcom.rc \
@@ -55,8 +54,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/vold.fstab:system/etc/vold.fstab \
     $(LOCAL_PATH)/config/fstab.qcom:root/fstab.qcom \
     $(LOCAL_PATH)/config/nvram_net.txt:system/vendor/firmware/nvram_net.txt \
-    $(LOCAL_PATH)/recovery/fix_reboot.sh:recovery/root/sbin/fix_reboot.sh \
-    $(LOCAL_PATH)/prebuilt/get_macaddrs:system/bin/get_macaddrs
+    $(LOCAL_PATH)/prebuilt/get_macaddrs:system/bin/get_macaddrs \
+    $(LOCAL_PATH)/prebuilt/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/prebuilt/fw_bcm4329.bin:system/vendor/firmware/fw_bcm4329.bin \
+    $(LOCAL_PATH)/prebuilt/fw_bcm4329_apsta.bin:system/vendor/firmware/fw_bcm4329_apsta.bin
+
+# Needed to reset bootmode when leaving recovery
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
+    $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/system/bin/postrecoveryboot.sh
 
 # Input device calibration files
 PRODUCT_COPY_FILES += \
@@ -72,14 +78,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keyfiles/sec_jack.kl:system/usr/keylayout/sec_jack.kl \
     $(LOCAL_PATH)/keyfiles/melfas_touchkey.kl:system/usr/keylayout/melfas_touchkey.kl
 
-# Copy bcm4329 firmware
-$(call inherit-product-if-exists, hardware/broadcom/wlan/bcm4329/firmware/device-bcm.mk)
-
 # Modules
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/bthid.ko:root/lib/modules/bthid.ko \
-    $(LOCAL_PATH)/prebuilt/dhd.ko:root/lib/modules/dhd.ko \
-    $(LOCAL_PATH)/prebuilt/cifs.ko:root/lib/modules/cifs.ko \
     $(LOCAL_PATH)/prebuilt/bthid.ko:system/lib/modules/bthid.ko \
     $(LOCAL_PATH)/prebuilt/dhd.ko:system/lib/modules/dhd.ko \
     $(LOCAL_PATH)/prebuilt/cifs.ko:system/lib/modules/cifs.ko
@@ -123,10 +123,11 @@ PRODUCT_PACKAGES += \
     copybit.msm7x30 \
     gralloc.msm7x30 \
     hwcomposer.msm7x30 \
-    gps.msm7x30 \
     lights.msm7x30 \
+    gps.msm7x30 \
     power.msm7x30 \
     audio.primary.msm7x30 \
+    audio_policy.msm7x30 \
     audio_policy.conf \
     audio.a2dp.default
 
@@ -136,9 +137,8 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libqdutils \
     libtilerenderer \
-    libI420colorconvert
+    libc2dcolorconvert
 
-PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libdivxdrmdecrypt \
     libmm-omxcore \

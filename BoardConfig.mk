@@ -63,7 +63,7 @@ WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_WLAN_DEVICE                := bcm4329
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
 WIFI_BAND                        := 802_11_ABG
-WIFI_DRIVER_MODULE_PATH          := "/lib/modules/dhd.ko"
+WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/dhd.ko"
 WIFI_DRIVER_FW_PATH_STA          := "/vendor/firmware/fw_bcm4329.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/vendor/firmware/fw_bcm4329_apsta.bin"
 WIFI_DRIVER_MODULE_NAME          := "dhd"
@@ -72,10 +72,12 @@ WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0 firmware_path=/vendor/firm
 BOARD_KERNEL_BASE := 0x00400000
 BOARD_KERNEL_PAGESIZE := 4096
 
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/ariesve/bluetooth/
+BOARD_BLUEDROID_VENDOR_CONF := device/samsung/ariesve/bluetooth/vnd_msm7x30.txt
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 TARGET_NEEDS_BLUETOOTH_INIT_DELAY := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/ariesve/bluetooth
 
 BOARD_MOBILEDATA_INTERFACE_NAME = "pdp0"
 
@@ -86,14 +88,15 @@ BOARD_HAVE_SAMSUNG_AUDIO := true
 BOARD_USES_QCOM_AUDIO_RESETALL := true
 
 ## Uncomment these to use the code aurora forum thingys
-#TARGET_QCOM_AUDIO_VARIANT := caf
+TARGET_QCOM_AUDIO_VARIANT := caf
 #TARGET_QCOM_DISPLAY_VARIANT := caf
 
 #BOARD_USES_QCOM_AUDIO_LPA := true
 #BOARD_USES_QCOM_AUDIO_VOIPMUTE := true
 
 BOARD_EGL_CFG := device/samsung/ariesve/config/egl.cfg
-TARGET_USES_ION := true
+TARGET_USES_ION := false
+BOARD_EGL_NEEDS_LEGACY_FB := true
 
 USE_OPENGL_RENDERER := true
 BOARD_USE_SKIA_LCDTEXT := true
@@ -102,7 +105,7 @@ BOARD_USE_SKIA_LCDTEXT := true
 # QCOM webkit
 TARGET_FORCE_CPU_UPLOAD := true
  
-#TARGET_NO_HW_VSYNC := true
+TARGET_NO_HW_VSYNC := true
 
 TARGET_USES_C2D_COMPOSITION := true
 
@@ -119,6 +122,8 @@ BOARD_USES_QCOM_GPS := true
 BOARD_USE_LEGACY_TOUCHSCREEN := true
 
 # Camera stuff
+COMMON_GLOBAL_CFLAGS += -DICS_CAMERA_BLOB -DNO_UPDATE_PREVIEW
+TARGET_PROVIDES_CAMERA_HAL := true
 BOARD_USES_LEGACY_OVERLAY := true
 BOARD_CAMERA_USE_MM_HEAP := true
 TARGET_DISABLE_ARM_PIE := true
@@ -150,7 +155,7 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_SDCARD_INTERNAL := true
-#TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/ariesve/recovery/recovery_keys.c
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/ariesve/recovery/graphics.c
 TARGET_RECOVERY_INITRC := device/samsung/ariesve/config/init.recovery.rc
