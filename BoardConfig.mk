@@ -91,13 +91,13 @@ BOARD_USES_LIBSECRIL_STUB := true
 
 BOARD_HAVE_SAMSUNG_AUDIO := true
 BOARD_USES_QCOM_AUDIO_RESETALL := true
+BOARD_USES_QCOM_AUDIO_VOIPMUTE := true
 
 ## Uncomment these to use the code aurora forum thingys
 TARGET_QCOM_AUDIO_VARIANT := caf
 #TARGET_QCOM_DISPLAY_VARIANT := caf
 
 #BOARD_USES_QCOM_AUDIO_LPA := true
-#BOARD_USES_QCOM_AUDIO_VOIPMUTE := true
 
 BOARD_EGL_CFG := device/samsung/ariesve/config/egl.cfg
 TARGET_USES_ION := false
