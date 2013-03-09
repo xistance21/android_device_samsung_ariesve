@@ -95,7 +95,7 @@ BOARD_USES_QCOM_AUDIO_VOIPMUTE := true
 
 ## Uncomment these to use the code aurora forum thingys
 TARGET_QCOM_AUDIO_VARIANT := caf
-#TARGET_QCOM_DISPLAY_VARIANT := caf
+TARGET_QCOM_DISPLAY_VARIANT := caf
 
 #BOARD_USES_QCOM_AUDIO_LPA := true
 
