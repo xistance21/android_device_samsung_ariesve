@@ -31,6 +31,7 @@ USE_CAMERA_STUB := true
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/ariesve/include
 
 TARGET_BOARD_PLATFORM := msm7x30
+TARGET_ARCH_VARIANT_CPU := cortex-a8
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 
 
